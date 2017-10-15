@@ -20,7 +20,7 @@ def populateModel(dataframe,path):
             dataframe = dataframe.append(pd.read_csv(filePath))
     return dataframe
 
-TrainingData = populateModel(TrainingData,'/Users/himanshukumar/Documents/Projects/Machine Learning/Spam Classifier/YouTube-Spam-Collection-v1/Train')
+TrainingData = populateModel(TrainingData,'/YouTube-Spam-Collection-v1/Train')
 
 mapping = {0:"Ham",1:"Spam"}
 TrainingData['CLASS'] = TrainingData['CLASS'].map(mapping)
@@ -35,7 +35,7 @@ classifier = MultinomialNB()
 res = classifier.fit(Counts,targets)
 
 #Now Call PopulateModel for Test Data
-TestingData = populateModel(TestingData, '/Users/himanshukumar/Documents/Projects/Machine Learning/Spam Classifier/YouTube-Spam-Collection-v1/Test')
+TestingData = populateModel(TestingData, '/YouTube-Spam-Collection-v1/Test')
 TestingData['CLASS'] = TestingData['CLASS'].map(mapping)
 
 #Calculate the count tokens for each comments using transform
